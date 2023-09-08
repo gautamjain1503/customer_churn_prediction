@@ -1,0 +1,22 @@
+stages:
+  data_ingestion:
+    cmd: python src/customer_churn_prediction/pipeline/stage_1_data_ingestion.py
+    deps:
+      - src/customer_churn_prediction/pipeline/stage_1_data_ingestion.py
+      - src/customer_churn_prediction/components/data_ingestion.py
+      - config/config.yaml
+    outs:
+      - artifacts/data_ingestion/data
+
+  preporcessing_training:
+    cmd: python src/customer_churn_prediction/pipeline/stage_2_data_preprocesser_trainer.py
+    deps:
+      - src/customer_churn_prediction/pipeline/stage_2_data_preprocesser_trainer.py
+      - src/customer_churn_prediction/components/pre_processer.py
+      - src/customer_churn_prediction/components/trainer.py
+      - config/config.yaml
+      - artifacts/data_ingestion/data
+    outs:
+      - artifacts/training/model.pkl
+      - scores.json
+

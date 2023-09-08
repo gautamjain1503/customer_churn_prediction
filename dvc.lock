@@ -1,0 +1,23 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/customer_churn_prediction/pipeline/stage_1_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 55e4015d33e98bd575e696890275b691
+      size: 590
+    - path: src/customer_churn_prediction/components/data_ingestion.py
+      hash: md5
+      md5: 336554bd136a527aa911cc03d4eae9a7
+      size: 1300
+    - path: src/customer_churn_prediction/pipeline/stage_1_data_ingestion.py
+      hash: md5
+      md5: 1061cde3402b23f51cb046b132860da3
+      size: 946
+    outs:
+    - path: artifacts/data_ingestion/data
+      hash: md5
+      md5: 80943d38f80bb71fd4a2909c9f8b3005.dir
+      size: 684858
+      nfiles: 1
