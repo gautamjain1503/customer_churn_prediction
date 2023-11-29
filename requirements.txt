@@ -12,4 +12,5 @@ Flask
 ensure
 nltk
 imblearn
+gunicorn
 -e .
